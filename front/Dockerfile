@@ -1,4 +1,4 @@
-FROM node:latest AS build-deps
+FROM node:latest AS build_deps
 
 RUN mkdir -p /usr/src/app
 COPY package.json quasar.conf.js .postcssrc.js yarn.lock babel.config.js /usr/src/app/
@@ -18,7 +18,7 @@ FROM nginx:alpine
 
 RUN mkdir -p /logs
 
-COPY --from=build-deps /usr/src/app/dist/spa /usr/share/nginx/html
+COPY --from=build_deps /usr/src/app/dist/spa /usr/share/nginx/html
 
 ARG API_HOST
 ARG PAD_HOST
