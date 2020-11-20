@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.7"
 services:
   api:
     build:
@@ -47,6 +47,8 @@ services:
       - ctfnote
 volumes:
   ctfnote:
+    name: ctfnote
   pad-uploads:
+    name: pad-uploads
 networks:
   ctfnote:
