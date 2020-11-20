@@ -11,8 +11,8 @@ services:
     depends_on:
       - db
   db:
-    image: postgres
-    restart: always
+    image: postgres:alpine
+    restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: ctfnote
       POSTGRES_USER: ctfnote
@@ -32,7 +32,7 @@ services:
       - api
       - codimd
     ports:
-      - 80:80
+      - 10180:80
   codimd:
     image: quay.io/codimd/server:1.6.0
     environment:
